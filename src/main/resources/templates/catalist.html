@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta name="author" content="" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>分类列表</title> 
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" /> 
+  <link rel="stylesheet" href="../editor/css/editormd.preview.min.css" />
+  <link rel="stylesheet" href="../editor/css/editormd.css" />
+ <!--  <link href="../tocify/css/jquery.tocify.css" rel="stylesheet"> -->
+  <style>
+ 
+
+
+  .nav{
+    font-size:20px;
+  }
+  .bread {
+      font-size: 12px;
+      color: blue;
+  }
+  body{
+       background-color:#F9F9F9;
+  }
+
+  .footer{
+  text-align: center;
+  background:#336699;
+  margin-top: 45px;
+  }
+
+  .cata{
+  border-radius:5px;
+  background:#ffffff;
+  margin-right: 10px;
+  /*position: fixed;*/
+  /*top: 30px;*/
+  }
+
+  .navbar{
+  background:#336699;
+  }
+  .content{
+    border-radius: 5px;
+    background: #ffffff;
+  }
+  .container{
+    margin-top: 10px;
+  }
+  .post-title{
+    text-align: center;
+  }
+  .post-meta{
+    text-align: center;
+  }
+  .content{
+    margin-bottom: 45px;
+  }
+  .header{
+    background-color: #ffffff;
+    height: 12px;
+  }
+  #nav_head{
+    height: 46px
+  }
+  #breadId{
+    margin-left: 50px
+  }
+  #navbar-header-id{
+    margin-left: 20px;
+    color: #ffffff;
+    margin-right: 30px;
+  }
+  /*}*/
+  #sitename{
+
+  }
+  #sitename_div{
+    margin-top: 7px;
+    float: left;
+    /* margin-top: 14px; */
+    font-size: 24px;
+  }
+  #fk-navbar-collapse{
+    color: #ffffff;
+  }
+  .cata_active{
+    font-weight: bold;
+    border-bottom: 5px solid #ffffff; 
+  }
+  .friendTitle{
+    text-align: left;
+    margin-left: 29px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .friendHref{
+    margin-left: -15px;
+    border-right: 2px solid #99b2cc;
+    margin-top: 8px;
+    color: #ffffff;
+  }
+  /*.contactme{
+    color: #ffffff;
+    margin-left: -96px;
+    margin-top: 10px;
+  }*/
+  .contactme{
+    color: #ffffff;
+    margin-top: 7px;
+    text-align: left;
+    margin-left: 39px;
+  }
+  .bloginfo{
+    border-radius: 5px;
+    background: #ffffff;
+    /*height:338px;*/
+    margin-left: -12px;
+    color: #336699
+  }
+  .comments{
+    margin-left: -12px;
+    border-radius: 5px;
+    background: #ffffff;
+    height: 528px;
+    margin-top:25px;
+  }
+  .tag{
+    margin-left: -12px;
+    border-radius: 5px;
+    background: #ffffff;
+    /*height: 193px;*/
+    margin-top:25px;
+  }
+  .articlelist{
+    border-radius: 5px;
+    background: #ffffff;
+    /*height: 2000px;*/
+  }
+  .tip:before { 
+    /*position: absolute; */
+    display: inline-block; 
+    border-top: 7px solid transparent; 
+    border-right: 7px solid #eee; 
+    border-bottom: 7px solid transparent; 
+    border-right-color: #f4f7f9; 
+    /*left: -8px; */
+    /*top: 20px; */
+    content: ''; 
+    margin-left: -7px;
+    margin-top: 15px;
+  } 
+  /*#articlelistId{
+    background: #ffffff;
+  }*/
+
+  #logoImage{
+     width: 61px;
+  height: 61px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  }
+  .buttonTag{
+    font-size: 13px;
+  }
+  .articletilte{
+        margin-top: -28px;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .article_content{
+    margin-left: 10px;
+        /*margin-left: 10px;*/
+    font-size: 14px;
+    padding-top: 5px;
+    /* padding-bottom: 10px; */
+    color: #999999;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .listTag{
+        font-size: 13px;
+    height: 27px;
+    background: #f89495;
+    /* background: red; */
+    border-radius: 3px;
+    color: #ffffff;
+    border: 0px;
+    margin-right: 10px;
+  }
+
+   .artilelist{
+    background: #ffffff;
+    /*height: 1000px;*/
+    border-radius: 5px;
+   }
+   .listtitle{
+        font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+   }
+   .sideTag{
+        font-size: 13px;
+    height: 27px;
+    background: #f89495;
+    /* background: red; */
+    border-radius: 3px;
+    color: #ffffff;
+    border: 0px;
+    margin-right: 10px;
+    /*margin-top: 12px*/
+  }
+  .artilecontent{
+           color: #999999;
+    font-size: 16px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+  }
+  .date{
+    font-size:16px;
+    color: #999999;
+  }
+  .listinfo{
+        padding-top: 10px;
+  }
+
+
+
+
+      
+
+
+
+
+
+  
+
+
+  </style> 
+ </head> 
+ <body> 
+  <div class="header"></div>
+  <nav class="navbar navbar-default" id="nav_head"> 
+   <div class="container-fluid"> 
+    <div class="navbar-header" id="navbar-header-id"> 
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#fk-navbar-collapse" aria-expanded="false"> <span class="sr-only">展开导航</span> 
+      <!-- 下面代表导航条中的3条横线 --> 
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> 
+     <a class="navbar-brand" style="padding-top:0" href="#"> 
+       <img alt="Dust's Blog" src="../logo.png" style="width: 40px;height:40px;margin-top:4px" />
+     </a> 
+     <div id="sitename_div">
+       <span id="sitename">Dust's Blog</span>
+     </div>
+    </div> 
+    <div class="collapse navbar-collapse" id="fk-navbar-collapse"> 
+     <ul class="nav navbar-nav"> 
+      <!-- <li role="presentation"  href="#"style="color: #ffffff;height:46px">首页</a></li>  -->
+      <li role="presentation" ><a href="#" class="cata_active" style="color: #ffffff;height:48px">首页</a></li> 
+      <li role="presentation" ><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
+      <li role="presentation"><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
+      <li role="presentation"><a href="#"  style="color: #ffffff;height:48px">我是标题</a></li> 
+     </ul> 
+    </div> 
+   </div> 
+  </nav> 
+  <nav id="breadId" class="breadcrumb&gt;
+  &lt;div class=" container"="">  
+   <span class="c-gray">首页</span>
+   <span class="c-gray en">&gt;</span>
+   <span class="c-gray">我是分类</span>
+   <span class="c-gray">（1024篇文章）</span>
+  </nav> 
+  <section class="container"> 
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12 artilelist">
+        <ul class="media-list" style="padding-top: 15px;">
+          <li class="media">
+            <div class="media-left">
+              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
+
+            </div>
+            <div class="media-body">
+              <div>
+                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+              </div>
+              <div>
+                <button class="sideTag">大数据</button>
+                <button class="sideTag">人工智能</button>
+                <button class="sideTag">云计算</button>
+                <button class="sideTag">Java</button>
+                <button class="sideTag">大数据</button>
+              </div>
+              <div style="padding-top: 12px;">
+                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+
+              </div>
+              <div class="listinfo">
+                <span class="date">2018-11-01 12:00:00</span>
+              </div>
+
+            </div>
+          </li>
+
+          <li class="media" style="    margin-top: 28px;">
+            <div class="media-left">
+              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
+
+            </div>
+            <div class="media-body">
+              <div>
+                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+              </div>
+              <div>
+                <button class="sideTag">大数据</button>
+                <button class="sideTag">人工智能</button>
+                <button class="sideTag">云计算</button>
+                <button class="sideTag">Java</button>
+                <button class="sideTag">大数据</button>
+              </div>
+              <div style="padding-top: 12px;">
+                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+
+              </div>
+              <div class="listinfo">
+                <span class="date">2018-11-01 12:00:00</span>
+              </div>
+
+            </div>
+          </li>
+
+          <li class="media" style="    margin-top: 28px;">
+            <div class="media-left">
+              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
+
+            </div>
+            <div class="media-body">
+              <div>
+                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+              </div>
+              <div>
+                <button class="sideTag">大数据</button>
+                <button class="sideTag">人工智能</button>
+                <button class="sideTag">云计算</button>
+                <button class="sideTag">Java</button>
+                <button class="sideTag">大数据</button>
+              </div>
+              <div style="padding-top: 12px;">
+                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+
+              </div>
+              <div class="listinfo">
+                <span class="date">2018-11-01 12:00:00</span>
+              </div>
+
+            </div>
+          </li>
+
+          <li class="media" style="    margin-top: 28px;">
+            <div class="media-left">
+              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
+
+            </div>
+            <div class="media-body">
+              <div>
+                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+              </div>
+              <div>
+                <button class="sideTag">大数据</button>
+                <button class="sideTag">人工智能</button>
+                <button class="sideTag">云计算</button>
+                <button class="sideTag">Java</button>
+                <button class="sideTag">大数据</button>
+              </div>
+              <div style="padding-top: 12px;">
+                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+
+              </div>
+              <div class="listinfo">
+                <span class="date">2018-11-01 12:00:00</span>
+              </div>
+
+            </div>
+          </li>
+
+          <li class="media" style="    margin-top: 28px;">
+            <div class="media-left">
+              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
+
+            </div>
+            <div class="media-body">
+              <div>
+                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+              </div>
+              <div>
+                <button class="sideTag">大数据</button>
+                <button class="sideTag">人工智能</button>
+                <button class="sideTag">云计算</button>
+                <button class="sideTag">Java</button>
+                <button class="sideTag">大数据</button>
+              </div>
+              <div style="padding-top: 12px;">
+                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+
+
+              </div>
+              <div class="listinfo">
+                <span class="date">2018-11-01 12:00:00</span>
+              </div>
+
+            </div>
+          </li>
+
+          
+
+
+
+    
+        </ul>
+
+        <!-- 分页导航 -->
+              <nav >
+                <ul class="pagination" style="    margin-left: 250px;margin-top: 40px;">
+                  <li><a href="#">上一页</a></li>
+                  <li><a href="#">...</a></li>
+                  <li><a href="#">3</a></li>
+                  <li  class="active"><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">...</a></li>
+                  <li class="disabled"><a href="#">下一页</a></li>
+
+                   
+
+                </ul>
+
+              </nav>
+
+
+      </div>
+
+
+    </div>
+
+
+
+   
+      
+  </section> 
+  <footer class="footer"> 
+   <div class="container-fluid" id="foot"> 
+    <div class="row">
+       <div class="col-lg-6">
+            <div class="friendTitle">友情链接</div>
+            
+            <ul style="border-right: 2px solid #99b2cc" class="list-inline friendHref">
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              
+            </ul>
+            
+       </div>
+       <div class="col-lg-6">
+           <div class="friendTitle">关注我</div>
+          
+
+           <ul class="list-unstyled contactme">
+             <li><span style="margin-right: 10px;">QQ:</span>&nbsp<span>2470451896</span></li>
+             <li><span style="margin-right: 4px;">邮箱:</span>&nbsp<span>dusthomeagain\@gmail.com</span></li>
+             <li><span style="margin-right: 4px;">微信:</span><span style="margin-left: 5px;"><img src="../weixin.jpg" style="width: 100px"/></span></li>
+
+           </ul>
+
+       </div>
+
+    </div>
+
+
+   </div> 
+  </footer> 
+  <script type="text/javascript" src="../jquery-3.1.1.js"></script> 
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script> 
+  <script src="../tocify/js/jquery-ui-1.9.1.custom.min.js"></script>
+  <script src="../tocify/js/jquery.tocify.min.js"></script>
+  <script src="../editor/lib/marked.min.js"></script>
+  <script src="../editor/lib/prettify.min.js"></script>
+  <script src="../editor/editormd.min.js"></script>
+  <script src="../less.min.js"></script>
+  <script type="text/javascript">
+   editormd.markdownToHTML("content");
+   var toc = $("#toc").tocify({
+        selectors: "h2,h3,h4,h5", // 选择要筛选的标题
+        extendPage: false, // 页面不够长时拉长页面，这里选择关闭因为感觉留出大片空白不好看- -
+        highlightDefault: false // 自动高亮第一条
+    });
+  </script>
+ </body>
+</html>

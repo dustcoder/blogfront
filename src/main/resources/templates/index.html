@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta name="author" content="" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>首页</title> 
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" /> 
+
+  <!-- <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css" />  -->
+ <!--  <link rel="stylesheet/less"  href="../bootstrap/less/bootstrap.less" media="all"/> -->
+  <link rel="stylesheet" href="../editor/css/editormd.preview.min.css" />
+  <link rel="stylesheet" href="../editor/css/editormd.css" />
+  <link href="../tocify/css/jquery.tocify.css" rel="stylesheet">
+
+
+
+
+  <style>
+ 
+
+
+  .nav{
+    font-size:20px;
+  }
+  .bread {
+      font-size: 12px;
+      color: blue;
+  }
+  body{
+       background-color:#F9F9F9;
+  }
+
+  .footer{
+  text-align: center;
+  background:#336699;
+  margin-top: 45px;
+  }
+
+  .cata{
+  border-radius:5px;
+  background:#ffffff;
+  margin-right: 10px;
+  /*position: fixed;*/
+  /*top: 30px;*/
+  }
+
+  .navbar{
+  background:#336699;
+  }
+  .content{
+    border-radius: 5px;
+    background: #ffffff;
+  }
+  .container{
+    margin-top: 10px;
+  }
+  .post-title{
+    text-align: center;
+  }
+  .post-meta{
+    text-align: center;
+  }
+  .content{
+    margin-bottom: 45px;
+  }
+
+  /*.active{
+    border-bottom: 5px solid #ffffff;
+    font-weight:bold;
+
+  }*/
+  /*.cata{
+        position: fixed;
+  }*/
+  .header{
+    background-color: #ffffff;
+    height: 12px;
+  }
+  #nav_head{
+    height: 46px
+  }
+  #breadId{
+    margin-left: 50px
+  }
+  #navbar-header-id{
+    margin-left: 20px;
+    color: #ffffff;
+    margin-right: 30px;
+  }
+  /*}*/
+  #sitename{
+
+  }
+  #sitename_div{
+    margin-top: 7px;
+    float: left;
+    /* margin-top: 14px; */
+    font-size: 24px;
+  }
+  #fk-navbar-collapse{
+    color: #ffffff;
+  }
+  .cata_active{
+    font-weight: bold;
+    border-bottom: 5px solid #ffffff; 
+  }
+  .friendTitle{
+    text-align: left;
+    margin-left: 29px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .friendHref{
+    margin-left: -15px;
+    border-right: 2px solid #99b2cc;
+    margin-top: 8px;
+    color: #ffffff;
+  }
+  /*.contactme{
+    color: #ffffff;
+    margin-left: -96px;
+    margin-top: 10px;
+  }*/
+  .contactme{
+    color: #ffffff;
+    margin-top: 7px;
+    text-align: left;
+    margin-left: 39px;
+  }
+  .bloginfo{
+    border-radius: 5px;
+    background: #ffffff;
+    /*height:338px;*/
+    margin-left: -12px;
+    color: #336699
+  }
+  .comments{
+    margin-left: -12px;
+    border-radius: 5px;
+    background: #ffffff;
+    height: 528px;
+    margin-top:25px;
+  }
+  .tag{
+    margin-left: -12px;
+    border-radius: 5px;
+    background: #ffffff;
+    /*height: 193px;*/
+    margin-top:25px;
+  }
+  .articlelist{
+    border-radius: 5px;
+    background: #ffffff;
+    /*height: 2000px;*/
+  }
+  .tip:before { 
+    /*position: absolute; */
+    display: inline-block; 
+    border-top: 7px solid transparent; 
+    border-right: 7px solid #eee; 
+    border-bottom: 7px solid transparent; 
+    border-right-color: #f4f7f9; 
+    /*left: -8px; */
+    /*top: 20px; */
+    content: ''; 
+    margin-left: -7px;
+    margin-top: 15px;
+  } 
+  /*#articlelistId{
+    background: #ffffff;
+  }*/
+
+  #logoImage{
+     width: 61px;
+  height: 61px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  }
+  .buttonTag{
+    font-size: 13px;
+  }
+  .articletilte{
+        margin-top: -28px;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .article_content{
+    margin-left: 10px;
+        /*margin-left: 10px;*/
+    font-size: 14px;
+    padding-top: 5px;
+    /* padding-bottom: 10px; */
+    color: #999999;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .listTag{
+        font-size: 13px;
+    height: 27px;
+    background: #f89495;
+    /* background: red; */
+    border-radius: 3px;
+    color: #ffffff;
+    border: 0px;
+    margin-right: 10px;
+  }
+  .sideTag{
+        font-size: 13px;
+    height: 27px;
+    background: #f89495;
+    /* background: red; */
+    border-radius: 3px;
+    color: #ffffff;
+    border: 0px;
+    margin-right: 10px;
+    margin-top: 12px
+  }
+
+  .circle:after {
+    background: #336699;
+    content: '';
+    height: 157px;;
+    width: 4px;
+    /* background: #000000; */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-top: 12px;
+   }
+  .circlelast:after{
+    background: #336699;
+    content: '';
+    height: 118px;;
+    width: 4px;
+    /* background: #000000; */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-top: 12px;
+   }
+
+   .dongtai{
+        margin-top: 10px;
+    color: #336699;
+    font-size: 18px;
+    font-weight: bold;
+   }
+   .date{
+        color: #336699;
+    font-size: 16px;
+   }
+   .fabiao{
+    font-size:12px;
+    color: #99999;
+   }
+   .listcata{
+    font-size: 14px;
+    color: #336699;
+   }
+   .qianming{
+        padding-right: 20px;
+    padding-left: 19px;
+    margin-top: 16px;
+    padding-bottom: 20px;
+    text-align: center;
+   }
+
+
+      
+
+
+
+
+
+  
+
+
+  </style> 
+ </head> 
+ <body> 
+  <div class="header"></div>
+  <nav class="navbar navbar-default" id="nav_head"> 
+   <div class="container-fluid"> 
+    <div class="navbar-header" id="navbar-header-id"> 
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#fk-navbar-collapse" aria-expanded="false"> <span class="sr-only">展开导航</span> 
+      <!-- 下面代表导航条中的3条横线 --> 
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> 
+     <a class="navbar-brand" style="padding-top:0" href="#"> 
+       <img alt="Dust's Blog" src="../image/logo.png" style="width: 40px;height:40px;margin-top:4px" />
+     </a> 
+     <div id="sitename_div">
+       <span id="sitename">Dust's Blog</span>
+     </div>
+    </div> 
+    <div class="collapse navbar-collapse" id="fk-navbar-collapse"> 
+     <ul class="nav navbar-nav"> 
+      <!-- <li role="presentation"  href="#"style="color: #ffffff;height:46px">首页</a></li>  -->
+      <li role="presentation" ><a href="#" class="cata_active" style="color: #ffffff;height:48px">首页</a></li> 
+      <li role="presentation" ><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
+      <li role="presentation"><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
+      <li role="presentation"><a href="#"  style="color: #ffffff;height:48px">我是标题</a></li> 
+     </ul> 
+    </div> 
+   </div> 
+  </nav> 
+  <nav id="breadId" class="breadcrumb&gt;
+  &lt;div class=" container"=""> 
+   <span class="c-gray">首页</span> 
+  </nav> 
+  <section class="container"> 
+   <div class="row">
+     <div class="col-sm-3 col-md-3">
+       <!-- 博客信息 -->
+       <div class="bloginfo">
+          <div style="margin-left:12px;padding-top:8px;font-weight: bold;font-size: 18px">博客信息</div>
+
+        <div style="margin-top: 10px;">
+          <img src="../image/logo3.jpg" id="logoImage" style="margin:0 auto">
+        </div>
+        <div style="margin-top: 16px;font-size: 20px;    text-align: center;">
+          <span>Dust</span>
+        </div>
+         <div class="qianming">
+          <p style="text-align: left;">这里是签名这里是签名这里是签名这里是签名这里是签名</p>
+         </div>
+
+
+       </div>
+       <!-- <div class="comments">
+
+
+       </div> -->
+       <div class="tag">
+        <div style="margin-left:12px;padding-top:8px;font-weight: bold;font-size: 18px;color: #336699">我的标签</div>
+
+        <div style="padding-bottom: 15px;margin-left: 12px;">
+
+          
+
+          <button class="sideTag">大数据</button>
+          <button class="sideTag">人工智能</button>
+          <button class="sideTag">云计算</button>
+          <button class="sideTag">Java</button>
+          <button class="sideTag">大数据</button>
+          <button class="sideTag">人工智能</button>
+          <button class="sideTag">云计算</button>
+          <button class="sideTag">Java</button>
+          <button class="sideTag">大数据</button>
+          <button class="sideTag">人工智能</button>
+          <button class="sideTag">云计算</button>
+          <button class="sideTag">Java</button>
+        </div>
+
+
+
+       </div>
+
+     </div>
+     <div class="col-sm-9 col-md-9 articlelist">
+          <div class="dongtai">
+            <span>最新动态</span>
+          </div>
+          
+           <!-- 列表项 style="margin-top:11px;padding-top: 28px"-->
+          <div>
+              <div style="clear: both;padding-top: 40px">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                  <!-- <div style="width:2px;background: #336699;margin-top: -10px;    width: 4px;height: 153px;margin-left: 8px;"></div> -->
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>  
+              <div style="clear: both;padding-top: 40px;">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>
+
+              <div style="clear: both;padding-top: 40px;">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>
+
+              <div style="clear: both;padding-top: 40px;">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>
+
+              <div style="clear: both;padding-top: 40px;">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>
+
+              <div style="clear: both;padding-top: 40px;">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>
+
+              <div style="clear: both;padding-top: 40px;">
+                <div style="width: 105px;float: left;margin-top: -15px">
+                   <p class="date">2018-11-08</p>
+                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
+                </div>
+        
+                <div style="float: left;width: 45px;">
+                   <p class="circlelast" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                </div>
+                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
+                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
+                  <div style="margin-left: 10px;    margin-bottom: 10px;">
+                      <button class="listTag">大数据</button>
+                      <button class="listTag">人工智能</button>
+                      <button class="listTag">云计算</button>
+                      <button class="listTag">Java</button>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- 列表结束 -->
+            </div>
+              
+            
+              <!-- 分页导航 -->
+              <nav >
+                <ul class="pagination" style="    margin-left: 250px;margin-top: 40px;">
+                  <li><a href="#">上一页</a></li>
+                  <li><a href="#">...</a></li>
+                  <li><a href="#">3</a></li>
+                  <li  class="active"><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">...</a></li>
+                  <li class="disabled"><a href="#">下一页</a></li>
+
+                   
+
+                </ul>
+
+              </nav>
+              
+
+
+
+
+          </div>
+
+        
+
+
+
+
+       </div>
+     <!-- </div> -->
+
+     
+
+   </div>
+      
+  </section> 
+  <footer class="footer"> 
+   <div class="container-fluid" id="foot"> 
+    <div class="row">
+       <div class="col-lg-6">
+            <div class="friendTitle">友情链接</div>
+            
+            <ul style="border-right: 2px solid #99b2cc" class="list-inline friendHref">
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              <li>友情链接1</li>
+              
+            </ul>
+            
+       </div>
+       <div class="col-lg-6">
+           <div class="friendTitle">关注我</div>
+          
+
+           <ul class="list-unstyled contactme">
+             <li><span style="margin-right: 10px;">QQ:</span>&nbsp<span>2470451896</span></li>
+               <!--加上空格-->
+             <li><span style="margin-right: 4px;">邮箱:</span>&nbsp<span>dusthomeagain\@gmail.com</span></li>
+             <li><span style="margin-right: 4px;">微信:</span><span style="margin-left: 5px;"><img src="../image/weixin.jpg" style="width: 100px"/></span></li>
+
+           </ul>
+
+       </div>
+
+    </div>
+
+
+   </div> 
+  </footer> 
+  <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script> 
+  <script src="../tocify/js/jquery-ui-1.9.1.custom.min.js"></script>
+  <script src="../tocify/js/jquery.tocify.min.js"></script>
+  <script src="../editor/lib/marked.min.js"></script>
+  <script src="../editor/lib/prettify.min.js"></script>
+  <script src="../editor/editormd.min.js"></script>
+  <script src="../less.min.js"></script>
+  <script type="text/javascript">
+   editormd.markdownToHTML("content");
+   var toc = $("#toc").tocify({
+        selectors: "h2,h3,h4,h5", // 选择要筛选的标题
+        extendPage: false, // 页面不够长时拉长页面，这里选择关闭因为感觉留出大片空白不好看- -
+        highlightDefault: false // 自动高亮第一条
+    });
+  </script>
+ </body>
+</html>

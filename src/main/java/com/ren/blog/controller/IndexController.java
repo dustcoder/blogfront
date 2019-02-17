@@ -1,0 +1,142 @@
+package com.ren.blog.controller;
+/*
+ *@Author:WuRen
+ *@Description:主页
+ */
+
+import com.ren.blog.model.Article;
+import com.ren.blog.model.TagArticle;
+import com.ren.blog.service.ArticleService;
+import com.ren.blog.service.TagService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+
+@Controller
+public class IndexController {
+
+    @Autowired
+    private ArticleService articleService;
+
+    @Autowired
+    private TagService tagService;
+
+    @GetMapping("/index")
+    public ModelAndView index(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("index.html");
+//        try{
+//            //主页查找文章信息
+//            List<Article> articleList = articleService.getArticleList();
+//            //批量查询 一对多有什么好方法 todo
+//            for(Article article : articleList){
+//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
+//                String tagArticleName = "";
+//                for(TagArticle tagArticle : tagArticleList){
+//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
+//                }
+//                article.setTagName(tagArticleName);
+//                if(article.getCataId() != null && article.getSubCataId() != null){
+//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
+//                }else {
+//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
+//                }
+//            }
+//            view.addObject("articleList",articleList);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            view.addObject("articleList",null);
+//        }
+        return view;
+    }
+
+    @GetMapping("/article")
+    public ModelAndView article(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("article.html");
+//        try{
+//            //主页查找文章信息
+//            List<Article> articleList = articleService.getArticleList();
+//            //批量查询 一对多有什么好方法 todo
+//            for(Article article : articleList){
+//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
+//                String tagArticleName = "";
+//                for(TagArticle tagArticle : tagArticleList){
+//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
+//                }
+//                article.setTagName(tagArticleName);
+//                if(article.getCataId() != null && article.getSubCataId() != null){
+//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
+//                }else {
+//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
+//                }
+//            }
+//            view.addObject("articleList",articleList);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            view.addObject("articleList",null);
+//        }
+        return view;
+    }
+
+    @GetMapping("/catalist")
+    public ModelAndView catalist(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("catalist.html");
+//        try{
+//            //主页查找文章信息
+//            List<Article> articleList = articleService.getArticleList();
+//            //批量查询 一对多有什么好方法 todo
+//            for(Article article : articleList){
+//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
+//                String tagArticleName = "";
+//                for(TagArticle tagArticle : tagArticleList){
+//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
+//                }
+//                article.setTagName(tagArticleName);
+//                if(article.getCataId() != null && article.getSubCataId() != null){
+//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
+//                }else {
+//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
+//                }
+//            }
+//            view.addObject("articleList",articleList);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            view.addObject("articleList",null);
+//        }
+        return view;
+    }
+
+    @GetMapping("/taglist")
+    public ModelAndView taglist(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("taglist.html");
+//        try{
+//            //主页查找文章信息
+//            List<Article> articleList = articleService.getArticleList();
+//            //批量查询 一对多有什么好方法 todo
+//            for(Article article : articleList){
+//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
+//                String tagArticleName = "";
+//                for(TagArticle tagArticle : tagArticleList){
+//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
+//                }
+//                article.setTagName(tagArticleName);
+//                if(article.getCataId() != null && article.getSubCataId() != null){
+//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
+//                }else {
+//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
+//                }
+//            }
+//            view.addObject("articleList",articleList);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            view.addObject("articleList",null);
+//        }
+        return view;
+    }
+}
