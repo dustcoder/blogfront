@@ -185,9 +185,10 @@
     font-size: 13px;
   }
   .articletilte{
-        margin-top: -28px;
+      margin-top: -28px;
     font-size: 20px;
     padding-left: 10px;
+      color: #336699;
   }
   .article_content{
     margin-left: 10px;
@@ -381,7 +382,7 @@
                       <!-- <div style="width:2px;background: #336699;margin-top: -10px;    width: 4px;height: 153px;margin-left: 8px;"></div> -->
                   </div>
                   <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                      <div class="articletilte">${article.articleName}</div>
+                      <div class="articletilte"> <a href="/article?articleId=${article.articleId}">${article.articleName}</a> </div>
                       <p class="article_content">${article.briefContent}</p>
                       <div style="margin-left: 10px;    margin-bottom: 10px;">
                           @for(tag in article.tagList){
