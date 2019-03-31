@@ -4,6 +4,7 @@ package com.ren.blog.controller;
  *@Description:主页
  */
 
+import com.github.pagehelper.PageInfo;
 import com.ren.blog.model.Article;
 import com.ren.blog.model.TagArticle;
 import com.ren.blog.service.ArticleService;
@@ -11,6 +12,7 @@ import com.ren.blog.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -24,61 +26,43 @@ public class IndexController {
     @Autowired
     private TagService tagService;
 
+
     @GetMapping("/index")
-    public ModelAndView index(){
+    public ModelAndView index(@RequestParam(defaultValue = "1") Integer pageNum,
+                              @RequestParam(defaultValue = "10") Integer pageSize){
+
         ModelAndView view = new ModelAndView();
-        view.setViewName("index.html");
-//        try{
-//            //主页查找文章信息
-//            List<Article> articleList = articleService.getArticleList();
-//            //批量查询 一对多有什么好方法 todo
-//            for(Article article : articleList){
-//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
-//                String tagArticleName = "";
-//                for(TagArticle tagArticle : tagArticleList){
-//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
-//                }
-//                article.setTagName(tagArticleName);
-//                if(article.getCataId() != null && article.getSubCataId() != null){
-//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
-//                }else {
-//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
-//                }
-//            }
-//            view.addObject("articleList",articleList);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            view.addObject("articleList",null);
-//        }
+        try {
+            view.setViewName("index.html");
+            PageInfo pageInfo = articleService.getArticleList(pageNum,pageSize);
+            //我的标签
+            view.addObject("tagList",tagService.getTags());
+            view.addObject("pageNum", pageInfo.getPageNum());
+            //获得一页显示的条数
+            view.addObject("pageSize", pageInfo.getPageSize());
+            //是否是第一页
+            view.addObject("isFirstPage", pageInfo.isIsFirstPage());
+            //获得总页数
+            view.addObject("totalPages", pageInfo.getPages());
+            //是否是最后一页
+            view.addObject("isLastPage", pageInfo.isIsLastPage());
+            view.addObject("pageInfo", pageInfo);
+//            view.addObject("article",articleService.getArticleList());//文章列表
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return view;
     }
 
     @GetMapping("/article")
-    public ModelAndView article(){
+    public ModelAndView article(@RequestParam(value="articleId") Integer articleId){
         ModelAndView view = new ModelAndView();
-        view.setViewName("article.html");
-//        try{
-//            //主页查找文章信息
-//            List<Article> articleList = articleService.getArticleList();
-//            //批量查询 一对多有什么好方法 todo
-//            for(Article article : articleList){
-//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
-//                String tagArticleName = "";
-//                for(TagArticle tagArticle : tagArticleList){
-//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
-//                }
-//                article.setTagName(tagArticleName);
-//                if(article.getCataId() != null && article.getSubCataId() != null){
-//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
-//                }else {
-//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
-//                }
-//            }
-//            view.addObject("articleList",articleList);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            view.addObject("articleList",null);
-//        }
+        try {
+            view.setViewName("article.html");
+            view.addObject("article",articleService.getArticle(articleId));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return view;
     }
 
@@ -86,28 +70,6 @@ public class IndexController {
     public ModelAndView catalist(){
         ModelAndView view = new ModelAndView();
         view.setViewName("catalist.html");
-//        try{
-//            //主页查找文章信息
-//            List<Article> articleList = articleService.getArticleList();
-//            //批量查询 一对多有什么好方法 todo
-//            for(Article article : articleList){
-//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
-//                String tagArticleName = "";
-//                for(TagArticle tagArticle : tagArticleList){
-//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
-//                }
-//                article.setTagName(tagArticleName);
-//                if(article.getCataId() != null && article.getSubCataId() != null){
-//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
-//                }else {
-//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
-//                }
-//            }
-//            view.addObject("articleList",articleList);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            view.addObject("articleList",null);
-//        }
         return view;
     }
 
@@ -115,28 +77,6 @@ public class IndexController {
     public ModelAndView taglist(){
         ModelAndView view = new ModelAndView();
         view.setViewName("taglist.html");
-//        try{
-//            //主页查找文章信息
-//            List<Article> articleList = articleService.getArticleList();
-//            //批量查询 一对多有什么好方法 todo
-//            for(Article article : articleList){
-//                List<TagArticle> tagArticleList =  tagService.getTagArticleList(article.getArticleId());
-//                String tagArticleName = "";
-//                for(TagArticle tagArticle : tagArticleList){
-//                    tagArticleName = tagArticleName + " " +  tagArticle.getTagName() ;
-//                }
-//                article.setTagName(tagArticleName);
-//                if(article.getCataId() != null && article.getSubCataId() != null){
-//                    article.setCataName(article.getFirstCateName() + "-" + article.getSecCataName());
-//                }else {
-//                    article.setCataName(article.getFirstCateName() == null ? article.getSecCataName() : article.getFirstCateName());
-//                }
-//            }
-//            view.addObject("articleList",articleList);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            view.addObject("articleList",null);
-//        }
         return view;
     }
 }

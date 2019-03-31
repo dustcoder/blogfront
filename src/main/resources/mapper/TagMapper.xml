@@ -80,7 +80,6 @@
 
   <select id="getTags" resultType="java.util.Map">
       select tag_id,tag_name from tag where enable = '1'
-
   </select>
 
 

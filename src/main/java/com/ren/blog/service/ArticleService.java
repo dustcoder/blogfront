@@ -4,18 +4,17 @@ package com.ren.blog.service;/*
  *@date: 19:42 2018/12/15
  */
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
+import com.ren.blog.dto.ArticleDto;
 import com.ren.blog.model.Article;
 
 import java.util.List;
 
 public interface ArticleService {
 
-    Integer addArticle(Article article);
+    PageInfo getArticleList(int pageNum, int pageSize);
 
-    void updateArticle(Article article);
-
-    List<Article> getArticleList();
-
-    Article getArticle(Integer articleId);
+    ArticleDto getArticle(Integer articleId)  throws Exception;
 
 }

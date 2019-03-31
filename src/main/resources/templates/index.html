@@ -346,20 +346,10 @@
 
         <div style="padding-bottom: 15px;margin-left: 12px;">
 
-          
+            @for(tag in tagList){
+            <button class="sideTag">${tag.tag_name}</button>
+            @}
 
-          <button class="sideTag">大数据</button>
-          <button class="sideTag">人工智能</button>
-          <button class="sideTag">云计算</button>
-          <button class="sideTag">Java</button>
-          <button class="sideTag">大数据</button>
-          <button class="sideTag">人工智能</button>
-          <button class="sideTag">云计算</button>
-          <button class="sideTag">Java</button>
-          <button class="sideTag">大数据</button>
-          <button class="sideTag">人工智能</button>
-          <button class="sideTag">云计算</button>
-          <button class="sideTag">Java</button>
         </div>
 
 
@@ -374,186 +364,80 @@
           
            <!-- 列表项 style="margin-top:11px;padding-top: 28px"-->
           <div>
+              @for(article in pageInfo.list){
+
+              <input type="hidden" value="${articleLP.last}"/>
+              <input type="hidden" value="${articleLP.last ==true?'class=circlelast':'class=circle'}"/>
+
+
               <div style="clear: both;padding-top: 40px">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                  <!-- <div style="width:2px;background: #336699;margin-top: -10px;    width: 4px;height: 153px;margin-left: 8px;"></div> -->
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
-
+                  <div style="width: 105px;float: left;margin-top: -15px">
+                      <p class="date">${article.createTime,dateFormat="yyyy-MM-dd"}</p>
+                      <span class="fabiao">发表</span><span class="listcata">${article.cataName}</span>
                   </div>
-                </div>
-              </div>  
-              <div style="clear: both;padding-top: 40px;">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
 
+                  <div style="float: left;width: 45px;">
+                      <p ${articleLP.last ==true?'class=circlelast':'class=circle'}  style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
+                      <!-- <div style="width:2px;background: #336699;margin-top: -10px;    width: 4px;height: 153px;margin-left: 8px;"></div> -->
                   </div>
-                </div>
+                  <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
+                      <div class="articletilte">${article.articleName}</div>
+                      <p class="article_content">${article.briefContent}</p>
+                      <div style="margin-left: 10px;    margin-bottom: 10px;">
+                          @for(tag in article.tagList){
+                          <button class="listTag">${tag.tagName}</button>
+                          @}
+                      </div>
+                  </div>
               </div>
 
-              <div style="clear: both;padding-top: 40px;">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
-
-                  </div>
-                </div>
-              </div>
-
-              <div style="clear: both;padding-top: 40px;">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
-
-                  </div>
-                </div>
-              </div>
-
-              <div style="clear: both;padding-top: 40px;">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
-
-                  </div>
-                </div>
-              </div>
-
-              <div style="clear: both;padding-top: 40px;">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circle" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
-
-                  </div>
-                </div>
-              </div>
-
-              <div style="clear: both;padding-top: 40px;">
-                <div style="width: 105px;float: left;margin-top: -15px">
-                   <p class="date">2018-11-08</p>
-                   <span class="fabiao">发表</span><span class="listcata">技术文章</span>
-                </div>
-        
-                <div style="float: left;width: 45px;">
-                   <p class="circlelast" style="width: 20px;height: 20px;border:solid 4px #336699;border-radius:50%;"></p>
-                </div>
-                <div class="tip"style="width: 617px;background: #f4f7f9;float: left;border-radius: 5px;margin-top: -15px">
-                  <div class="articletilte">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</div>
-                  <p class="article_content">学习进行时]2019年，是新中国成立70周年，也是决胜全面建成小康社会关键之年。新年伊始，习近平以繁忙的工作节奏为一年的活动拉开帷幕。新华社《学习进行时》原创品牌栏目“讲习所”推出文章，以金句为线索为您梳理回顾习近平的一月活动。</p>
-                  <div style="margin-left: 10px;    margin-bottom: 10px;">
-                      <button class="listTag">大数据</button>
-                      <button class="listTag">人工智能</button>
-                      <button class="listTag">云计算</button>
-                      <button class="listTag">Java</button>
-
-                  </div>
-                </div>
-              </div>
-
+              @}
               <!-- 列表结束 -->
             </div>
-              
-            
-              <!-- 分页导航 -->
-              <nav >
-                <ul class="pagination" style="    margin-left: 250px;margin-top: 40px;">
-                  <li><a href="#">上一页</a></li>
-                  <li><a href="#">...</a></li>
-                  <li><a href="#">3</a></li>
-                  <li  class="active"><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">...</a></li>
-                  <li class="disabled"><a href="#">下一页</a></li>
-
-                   
-
-                </ul>
-
-              </nav>
-              
 
 
+         <!-- 分页导航 -->
+         <nav >
+             <ul class="pagination" style=" margin-left: 250px;margin-top: 40px;">
+                 <li><a href="/index?pageNum=1">首页</a></li>
+                 @if(pageInfo.pageNum<=1){
+                 <li><a href="#">上一页</a></li>
+                 @}
+                 @if(pageInfo.pageNum>1){
+                 <li><a href="/index?pageNum=${pageNum -1}">上一页</a></li>
+                 @}
 
 
-          </div>
+                 @for(item in pageInfo.navigatepageNums){
+                 @if(item == pageInfo.pageNum){
+                 <li class="active"><a href="javascript:void(0)">${item}</a></li>
+                 @}
+                 @if(item != pageInfo.pageNum){
+                 <li ><a href="/index?pageNum=${item}">${item}</a></li>
+                 @}
+                 @}
+
+                 @if(pageInfo.pageNum< pageInfo.pages){
+                 <li><a href="/index?pageNum=${pageNum +1}">下一页</a></li>
+                 @}
+
+                 @if(pageInfo.pageNum == pageInfo.pages){
+                 <li><a href="javascript:void(0)">下一页</a></li>
+                 @}
+
+                 @if(pageInfo.pageNum<= pageInfo.pages){
+                 <li><a href="/index?pageNum=${pageInfo.pages}">末页</a></li>
+                 @}
+             </ul>
+
+         </nav>
+
+
+
+
+
+
+     </div>
 
         
 
