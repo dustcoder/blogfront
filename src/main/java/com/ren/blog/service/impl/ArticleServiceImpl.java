@@ -27,6 +27,25 @@ public class ArticleServiceImpl implements ArticleService {
     private TagArticleMapper tagArticleMapper;
 
     @Override
+    public PageInfo getArticleListByCataId(int pageNum, int pageSize, String cataName) {
+
+        PageHelper.startPage(pageNum, pageSize);
+        List<ArticleDto> list =  articleMapper.getArticleListByCataName(cataName);
+        for(ArticleDto articleDto : list){
+            articleDto.setTagList(tagArticleMapper.getTagArticleList(Integer.parseInt(articleDto.getArticleId())));;
+        }
+        //使用PageInfo包装查询结果，只需要将pageInfo交给页面就可以
+        PageInfo pageInfo = new PageInfo<ArticleDto>(list);
+        return pageInfo;
+
+    }
+
+    @Override
+    public PageInfo getArticleListByTagId(int pageNum, int pageSize, Integer tagId) {
+        return null;
+    }
+
+    @Override
     public ArticleDto getArticle(Integer articleId) throws Exception{
         ArticleDto articleDto = articleMapper.selectByPrimaryKey(articleId);
         articleDto.setTagList(tagArticleMapper.getTagArticleList(articleId));

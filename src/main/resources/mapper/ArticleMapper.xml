@@ -11,8 +11,17 @@
   </resultMap>
 
 
+    <resultMap id="articleCataMap" type="com.ren.blog.dto.ArticleDto">
+        <id column="article_id" property="articleId" jdbcType="INTEGER" />
+        <result column="article_name" property="articleName" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="DATE" />
+        <result column="brief_content" property="briefContent" jdbcType="VARCHAR" />
+    </resultMap>
 
-  <select id="getArticleList" resultMap="articleMap">
+
+
+
+    <select id="getArticleList" resultMap="articleMap">
       SELECT
         t.article_id,
         t.article_name,
@@ -27,6 +36,25 @@
       ORDER BY
         t.create_time DESC
   </select>
+
+
+
+    <select id="getArticleListByCataName" resultMap="articleMap">
+        SELECT
+        t.article_id,
+        t.article_name,
+        t.create_time,
+        substring(t.md_content, 1, 400) as brief_content,
+        c.cata_name
+        FROM
+        article t,cata c
+        WHERE
+        t.cata_id =c.cata_id
+        and c.cata_name = #{cataName}
+      and  t.`enable` = '1'
+        ORDER BY
+        t.create_time DESC
+    </select>
 
 
   <select id="selectByPrimaryKey" resultType="com.ren.blog.dto.ArticleDto" parameterType="java.lang.Integer">

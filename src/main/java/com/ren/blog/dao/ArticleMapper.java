@@ -10,4 +10,10 @@ public interface ArticleMapper {
     ArticleDto selectByPrimaryKey(@Param("articleId")Integer articleId);
 
     List<ArticleDto> getArticleList();
+
+    List<ArticleDto> getArticleListByCataName(@Param("cataName") String cataName);
+
+    List<ArticleDto> getArticleListByTagId(@Param("tagId") Integer tagId);
+
+
 }

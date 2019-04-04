@@ -15,6 +15,13 @@ public interface ArticleService {
 
     PageInfo getArticleList(int pageNum, int pageSize);
 
+
+    PageInfo getArticleListByCataId(int pageNum, int pageSize,String cataName);
+
+
+    PageInfo getArticleListByTagId(int pageNum, int pageSize,Integer tagId);
+
+
     ArticleDto getArticle(Integer articleId)  throws Exception;
 
 }

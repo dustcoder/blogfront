@@ -67,8 +67,27 @@ public class IndexController {
     }
 
     @GetMapping("/catalist")
-    public ModelAndView catalist(){
+    public ModelAndView catalist(@RequestParam(defaultValue = "1") Integer pageNum,
+                                 @RequestParam(defaultValue = "10") Integer pageSize,@RequestParam (value="cataName") String cataName){
+
         ModelAndView view = new ModelAndView();
+        try {
+            view.setViewName("index.html");
+            PageInfo pageInfo = articleService.getArticleListByCataId(pageNum,pageSize,cataName);
+            //我的标签
+            view.addObject("pageNum", pageInfo.getPageNum());
+            //获得一页显示的条数
+            view.addObject("pageSize", pageInfo.getPageSize());
+            //是否是第一页
+            view.addObject("isFirstPage", pageInfo.isIsFirstPage());
+            //获得总页数
+            view.addObject("isLastPage", pageInfo.isIsLastPage());
+            view.addObject("pageInfo", pageInfo);
+            view.addObject("cataName",cataName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         view.setViewName("catalist.html");
         return view;
     }

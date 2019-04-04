@@ -285,182 +285,89 @@
   &lt;div class=" container"="">  
    <span class="c-gray">首页</span>
    <span class="c-gray en">&gt;</span>
-   <span class="c-gray">我是分类</span>
-   <span class="c-gray">（1024篇文章）</span>
+   <span class="c-gray">${cataName}</span>
+   <span class="c-gray">（${pageInfo.total}篇文章）</span>
   </nav> 
   <section class="container"> 
     <div class="row">
 
       <div class="col-sm-12 col-md-12 artilelist">
         <ul class="media-list" style="padding-top: 15px;">
-          <li class="media">
-            <div class="media-left">
-              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
+            @for(article in pageInfo.list){
 
-            </div>
-            <div class="media-body">
-              <div>
-                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+            <li class="media">
+                <div class="media-left">
+                    <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
 
-              </div>
-              <div>
-                <button class="sideTag">大数据</button>
-                <button class="sideTag">人工智能</button>
-                <button class="sideTag">云计算</button>
-                <button class="sideTag">Java</button>
-                <button class="sideTag">大数据</button>
-              </div>
-              <div style="padding-top: 12px;">
-                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
+                </div>
+                <div class="media-body">
+                    <div>
+                        <p class="listtitle">${article.articleName}</p>
 
+                    </div>
+                    <div>
+                        @for(tag in article.tagList){
+                           <button class="sideTag">${tag.tagName}</button>
+                        @}
+                    </div>
+                    <div style="padding-top: 12px;">
+                        <p class="artilecontent">${article.briefContent}</p>
+                    </div>
+                    <div class="listinfo">
+                        <span class="date">${article.createTime,dateFormat="yyyy-MM-dd"}</span>
+                    </div>
 
-              </div>
-              <div class="listinfo">
-                <span class="date">2018-11-01 12:00:00</span>
-              </div>
-
-            </div>
-          </li>
-
-          <li class="media" style="    margin-top: 28px;">
-            <div class="media-left">
-              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
-
-            </div>
-            <div class="media-body">
-              <div>
-                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-              </div>
-              <div>
-                <button class="sideTag">大数据</button>
-                <button class="sideTag">人工智能</button>
-                <button class="sideTag">云计算</button>
-                <button class="sideTag">Java</button>
-                <button class="sideTag">大数据</button>
-              </div>
-              <div style="padding-top: 12px;">
-                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-
-              </div>
-              <div class="listinfo">
-                <span class="date">2018-11-01 12:00:00</span>
-              </div>
-
-            </div>
-          </li>
-
-          <li class="media" style="    margin-top: 28px;">
-            <div class="media-left">
-              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
-
-            </div>
-            <div class="media-body">
-              <div>
-                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-              </div>
-              <div>
-                <button class="sideTag">大数据</button>
-                <button class="sideTag">人工智能</button>
-                <button class="sideTag">云计算</button>
-                <button class="sideTag">Java</button>
-                <button class="sideTag">大数据</button>
-              </div>
-              <div style="padding-top: 12px;">
-                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-
-              </div>
-              <div class="listinfo">
-                <span class="date">2018-11-01 12:00:00</span>
-              </div>
-
-            </div>
-          </li>
-
-          <li class="media" style="    margin-top: 28px;">
-            <div class="media-left">
-              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
-
-            </div>
-            <div class="media-body">
-              <div>
-                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-              </div>
-              <div>
-                <button class="sideTag">大数据</button>
-                <button class="sideTag">人工智能</button>
-                <button class="sideTag">云计算</button>
-                <button class="sideTag">Java</button>
-                <button class="sideTag">大数据</button>
-              </div>
-              <div style="padding-top: 12px;">
-                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-
-              </div>
-              <div class="listinfo">
-                <span class="date">2018-11-01 12:00:00</span>
-              </div>
-
-            </div>
-          </li>
-
-          <li class="media" style="    margin-top: 28px;">
-            <div class="media-left">
-              <img style="width: 241px;height: 161px" class="media-object"  src="../weixin.jpg"/>
-
-            </div>
-            <div class="media-body">
-              <div>
-                <p class="listtitle">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-              </div>
-              <div>
-                <button class="sideTag">大数据</button>
-                <button class="sideTag">人工智能</button>
-                <button class="sideTag">云计算</button>
-                <button class="sideTag">Java</button>
-                <button class="sideTag">大数据</button>
-              </div>
-              <div style="padding-top: 12px;">
-                <p class="artilecontent">这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态这里是动态</p>
-
-
-              </div>
-              <div class="listinfo">
-                <span class="date">2018-11-01 12:00:00</span>
-              </div>
-
-            </div>
-          </li>
-
-          
+                </div>
+            </li>
+            @}
 
 
 
-    
+
         </ul>
 
-        <!-- 分页导航 -->
-              <nav >
-                <ul class="pagination" style="    margin-left: 250px;margin-top: 40px;">
+          <!-- 分页导航 -->
+          <nav >
+              <ul class="pagination" style=" margin-left: 250px;margin-top: 40px;">
+                  <li><a href="/catalist?cataId=${cataId}&pageNum=1">首页</a></li>
+                  @if(pageInfo.pageNum<=1){
                   <li><a href="#">上一页</a></li>
-                  <li><a href="#">...</a></li>
-                  <li><a href="#">3</a></li>
-                  <li  class="active"><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">...</a></li>
-                  <li class="disabled"><a href="#">下一页</a></li>
+                  @}
+                  @if(pageInfo.pageNum>1){
+                  <li><a href="/catalist?cataId=${cataId}&pageNum=${pageNum -1}">上一页</a></li>
+                  @}
 
-                   
 
-                </ul>
+                  @for(item in pageInfo.navigatepageNums){
+                  @if(item == pageInfo.pageNum){
+                  <li class="active"><a href="javascript:void(0)">${item}</a></li>
+                  @}
+                  @if(item != pageInfo.pageNum){
+                  <li ><a href="/catalist?cataId=${cataId}&pageNum=${item}">${item}</a></li>
+                  @}
+                  @}
 
-              </nav>
+                  @if(pageInfo.pageNum< pageInfo.pages){
+                  <li><a href="/catalist?cataId=${cataId}&pageNum=${pageNum +1}">下一页</a></li>
+                  @}
+
+                  @if(pageInfo.pageNum == pageInfo.pages){
+                  <li><a href="javascript:void(0)">下一页</a></li>
+                  @}
+
+                  @if(pageInfo.pageNum<= pageInfo.pages){
+                  <li><a href="/catalist?cataId=${cataId}&pageNum=${pageInfo.pages}">末页</a></li>
+                  @}
+              </ul>
+
+          </nav>
+
+
+
+
+
+
+
 
 
       </div>
