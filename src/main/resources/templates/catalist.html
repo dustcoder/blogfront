@@ -302,7 +302,7 @@
                 </div>
                 <div class="media-body">
                     <div>
-                        <p class="listtitle">${article.articleName}</p>
+                        <a href="/article?articleId=${article.articleId}"><p class="listtitle">${article.articleName}</p></a>
 
                     </div>
                     <div>
@@ -322,19 +322,17 @@
             @}
 
 
-
-
         </ul>
 
           <!-- 分页导航 -->
           <nav >
               <ul class="pagination" style=" margin-left: 250px;margin-top: 40px;">
-                  <li><a href="/catalist?cataId=${cataId}&pageNum=1">首页</a></li>
+                  <li><a href="/catalist?cataName=${cataName}&pageNum=1">首页</a></li>
                   @if(pageInfo.pageNum<=1){
                   <li><a href="#">上一页</a></li>
                   @}
                   @if(pageInfo.pageNum>1){
-                  <li><a href="/catalist?cataId=${cataId}&pageNum=${pageNum -1}">上一页</a></li>
+                  <li><a href="/catalist?cataName=${cataName}&pageNum=${pageNum -1}">上一页</a></li>
                   @}
 
 
@@ -343,12 +341,12 @@
                   <li class="active"><a href="javascript:void(0)">${item}</a></li>
                   @}
                   @if(item != pageInfo.pageNum){
-                  <li ><a href="/catalist?cataId=${cataId}&pageNum=${item}">${item}</a></li>
+                  <li ><a href="/catalist?cataName=${cataName}&pageNum=${item}">${item}</a></li>
                   @}
                   @}
 
                   @if(pageInfo.pageNum< pageInfo.pages){
-                  <li><a href="/catalist?cataId=${cataId}&pageNum=${pageNum +1}">下一页</a></li>
+                  <li><a href="/catalist?cataName=${cataName}&pageNum=${pageNum +1}">下一页</a></li>
                   @}
 
                   @if(pageInfo.pageNum == pageInfo.pages){
@@ -356,7 +354,7 @@
                   @}
 
                   @if(pageInfo.pageNum<= pageInfo.pages){
-                  <li><a href="/catalist?cataId=${cataId}&pageNum=${pageInfo.pages}">末页</a></li>
+                  <li><a href="/catalist?cataName=${cataName}&pageNum=${pageInfo.pages}">末页</a></li>
                   @}
               </ul>
 
