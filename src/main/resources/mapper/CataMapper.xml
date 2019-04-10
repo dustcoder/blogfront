@@ -14,6 +14,13 @@
     <result column="enable" property="enable" jdbcType="CHAR" />
     <result column="parent_cata" property="parentCata" jdbcType="INTEGER" />
   </resultMap>
+
+
+  <resultMap id="CataNameResultMap" type="com.ren.blog.model.Cata" >
+    <result column="cata_name" property="cataName" jdbcType="VARCHAR" />
+  </resultMap>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated
@@ -66,7 +73,7 @@
     from cata
   </select>
 
-  <select id="getCataList" resultType="java.util.Map" parameterType="java.lang.String">
-  SELECT cata_id,cata_name FROM cata WHERE CATA_LEVEL = #{cataLevel,jdbcType=VARCHAR}
+  <select id="getCataList" resultType="java.lang.String">
+  SELECT cata_name FROM cata WHERE enable = '1'
 </select>
 </mapper>

@@ -9,5 +9,5 @@ import java.util.Map;
 
 public interface CataService {
 
-    public List<Map<String,Object>> getCataList(String cataLevel);
+    public List<String> getCataList();
 }

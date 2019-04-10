@@ -18,7 +18,7 @@ public class CataServiceImpl implements CataService{
     @Autowired
     private CataMapper cataMapper;
     @Override
-    public List<Map<String, Object>> getCataList(String cataLevel) {
-        return cataMapper.getCataList(cataLevel);
+    public List<String> getCataList() {
+        return cataMapper.getCataList();
     }
 }

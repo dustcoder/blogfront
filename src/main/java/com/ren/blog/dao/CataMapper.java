@@ -46,5 +46,5 @@ public interface CataMapper {
      */
     int updateByPrimaryKey(Cata record);
 
-    List<Map<String,Object>> getCataList(String cataLevel);
+    List<String> getCataList();
 }

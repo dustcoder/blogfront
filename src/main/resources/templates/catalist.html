@@ -239,17 +239,6 @@
   }
 
 
-
-
-      
-
-
-
-
-
-  
-
-
   </style> 
  </head> 
  <body> 
@@ -263,20 +252,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button> 
-     <a class="navbar-brand" style="padding-top:0" href="#"> 
-       <img alt="Dust's Blog" src="../logo.png" style="width: 40px;height:40px;margin-top:4px" />
-     </a> 
+     <!--<a class="navbar-brand" style="padding-top:0" href="#"> -->
+       <!--<img alt="Dust's Blog" src="../logo.png" style="width: 40px;height:40px;margin-top:4px" />-->
+     <!--</a> -->
      <div id="sitename_div">
-       <span id="sitename">Dust's Blog</span>
+         <a style="color: #ffffff;" href="/index"><span id="sitename">Dust's Blog</span></a>
      </div>
     </div> 
     <div class="collapse navbar-collapse" id="fk-navbar-collapse"> 
      <ul class="nav navbar-nav"> 
       <!-- <li role="presentation"  href="#"style="color: #ffffff;height:46px">首页</a></li>  -->
-      <li role="presentation" ><a href="#" class="cata_active" style="color: #ffffff;height:48px">首页</a></li> 
-      <li role="presentation" ><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
-      <li role="presentation"><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
-      <li role="presentation"><a href="#"  style="color: #ffffff;height:48px">我是标题</a></li> 
+      <li role="presentation" ><a href="/index"  style="color: #ffffff;height:48px">首页</a></li>
+         @for(item in cataList){
+         <li role="presentation" ><a href="/catalist?cataName=${item}"
+                                     @if(cataName==item){
+                                     class="cata_active"
+                                     @}
+                                     style="color: #ffffff;height:48px">${item}</a></li>
+         @}
+      <!--<li role="presentation" ><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> -->
+      <!--<li role="presentation"><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> -->
+      <!--<li role="presentation"><a href="#"  style="color: #ffffff;height:48px">我是标题</a></li> -->
      </ul> 
     </div> 
    </div> 

@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import com.ren.blog.model.Article;
 import com.ren.blog.model.TagArticle;
 import com.ren.blog.service.ArticleService;
+import com.ren.blog.service.CataService;
 import com.ren.blog.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class IndexController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private CataService cataService;
 
 
     @GetMapping("/index")
@@ -47,7 +51,7 @@ public class IndexController {
             //是否是最后一页
             view.addObject("isLastPage", pageInfo.isIsLastPage());
             view.addObject("pageInfo", pageInfo);
-//            view.addObject("article",articleService.getArticleList());//文章列表
+            view.addObject("cataList",cataService.getCataList());  //所有分类
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -60,6 +64,7 @@ public class IndexController {
         try {
             view.setViewName("article.html");
             view.addObject("article",articleService.getArticle(articleId));
+            view.addObject("cataList",cataService.getCataList());  //所有分类
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -84,6 +89,7 @@ public class IndexController {
             view.addObject("isLastPage", pageInfo.isIsLastPage());
             view.addObject("pageInfo", pageInfo);
             view.addObject("cataName",cataName);
+            view.addObject("cataList",cataService.getCataList());  //所有分类
         }catch (Exception e){
             e.printStackTrace();
         }

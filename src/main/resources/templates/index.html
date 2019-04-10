@@ -297,21 +297,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button> 
-     <a class="navbar-brand" style="padding-top:0" href="#"> 
-       <img alt="Dust's Blog" src="../image/logo.png" style="width: 40px;height:40px;margin-top:4px" />
-     </a> 
+     <!--<a class="navbar-brand" style="padding-top:0" href="#"> -->
+       <!--<img alt="Dust's Blog" src="../image/logo.png" style="width: 40px;height:40px;margin-top:4px" />-->
+     <!--</a> -->
      <div id="sitename_div">
-       <span id="sitename">Dust's Blog</span>
+       <!--<span id="sitename">Dust's Blog</span>-->
+         <a style="color: #ffffff;" href="/index"><span id="sitename">Dust's Blog</span></a>
      </div>
     </div> 
     <div class="collapse navbar-collapse" id="fk-navbar-collapse"> 
      <ul class="nav navbar-nav"> 
-      <!-- <li role="presentation"  href="#"style="color: #ffffff;height:46px">首页</a></li>  -->
-      <li role="presentation" ><a href="#" class="cata_active" style="color: #ffffff;height:48px">首页</a></li> 
-      <li role="presentation" ><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
-      <li role="presentation"><a href="#" style="color: #ffffff;height:48px">我是标题</a></li> 
-      <li role="presentation"><a href="#"  style="color: #ffffff;height:48px">我是标题</a></li> 
-     </ul> 
+      <li role="presentation" ><a href="/index" class="cata_active" style="color: #ffffff;height:48px">首页</a></li>
+        @for(item in cataList){
+         <li role="presentation" ><a href="/catalist?cataName=${item}" style="color: #ffffff;height:48px">${item}</a></li>
+         @}
+     </ul>
     </div> 
    </div> 
   </nav> 
@@ -327,7 +327,7 @@
           <div style="margin-left:12px;padding-top:8px;font-weight: bold;font-size: 18px">博客信息</div>
 
         <div style="margin-top: 10px;">
-          <img src="../image/logo3.jpg" id="logoImage" style="margin:0 auto">
+          <img src="../image/logo.jpg" id="logoImage" style="margin:0 auto">
         </div>
         <div style="margin-top: 16px;font-size: 20px;    text-align: center;">
           <span>Dust</span>
