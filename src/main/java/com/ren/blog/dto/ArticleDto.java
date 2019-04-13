@@ -17,6 +17,8 @@ public class ArticleDto {
     private String articleName;
     private List<TagArticle> tagList;
     private String briefContent;
+    private String fileName;
+
 
     public String getContent() {
         return content;
@@ -27,6 +29,14 @@ public class ArticleDto {
     }
 
     private String content;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
     public String getArticleId() {
         return articleId;

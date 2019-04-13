@@ -8,6 +8,7 @@
     <result column="create_time" property="createTime" jdbcType="DATE" />
     <result column="cata_name" property="cataName" jdbcType="VARCHAR" />
     <result column="brief_content" property="briefContent" jdbcType="VARCHAR" />
+      <result column="file_name" property="fileName" jdbcType="VARCHAR" />
   </resultMap>
 
 
@@ -27,7 +28,8 @@
         t.article_name,
         t.create_time,
       substring(t.md_content, 1, 400) as brief_content,
-      c.cata_name
+      c.cata_name,
+      t.file_name
       FROM
         article t,cata c
       WHERE
@@ -45,7 +47,8 @@
         t.article_name,
         t.create_time,
         substring(t.md_content, 1, 400) as brief_content,
-        c.cata_name
+        c.cata_name,
+        t.file_name
         FROM
         article t,cata c
         WHERE
