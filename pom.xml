@@ -106,6 +106,7 @@
     </dependencies>
 
     <build>
+        <finalName>front</finalName>
         <plugins>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
